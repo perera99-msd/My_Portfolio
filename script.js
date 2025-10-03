@@ -1,6 +1,5 @@
-// Initialize particles.js
 document.addEventListener('DOMContentLoaded', function() {
-    // Particles.js configuration
+    // Initialize particles.js
     particlesJS('particles-js', {
         particles: {
             number: {
@@ -11,17 +10,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             },
             color: {
-                value: '#8a2be2'
+                value: "#ffffff"
             },
             shape: {
-                type: 'circle',
+                type: "circle",
                 stroke: {
                     width: 0,
-                    color: '#000000'
+                    color: "#000000"
                 }
             },
             opacity: {
-                value: 0.5,
+                value: 0.3,
                 random: true,
                 anim: {
                     enable: true,
@@ -43,17 +42,17 @@ document.addEventListener('DOMContentLoaded', function() {
             line_linked: {
                 enable: true,
                 distance: 150,
-                color: '#8a2be2',
-                opacity: 0.4,
+                color: "#ffffff",
+                opacity: 0.2,
                 width: 1
             },
             move: {
                 enable: true,
-                speed: 2,
-                direction: 'none',
+                speed: 1,
+                direction: "none",
                 random: true,
                 straight: false,
-                out_mode: 'out',
+                out_mode: "out",
                 bounce: false,
                 attract: {
                     enable: false,
@@ -63,15 +62,15 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         },
         interactivity: {
-            detect_on: 'canvas',
+            detect_on: "canvas",
             events: {
                 onhover: {
                     enable: true,
-                    mode: 'grab'
+                    mode: "grab"
                 },
                 onclick: {
                     enable: true,
-                    mode: 'push'
+                    mode: "push"
                 },
                 resize: true
             },
@@ -79,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 grab: {
                     distance: 140,
                     line_linked: {
-                        opacity: 1
+                        opacity: 0.5
                     }
                 },
                 push: {
@@ -94,31 +93,35 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 100) {
-            navbar.classList.add('navbar-scrolled');
+            navbar.style.padding = '10px 0';
+            navbar.style.backgroundColor = 'rgba(10, 10, 20, 0.95)';
+            navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.2)';
         } else {
-            navbar.classList.remove('navbar-scrolled');
+            navbar.style.padding = '20px 0';
+            navbar.style.backgroundColor = 'rgba(10, 10, 20, 0.95)';
+            navbar.style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.3)';
         }
     });
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
+            
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
             
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset - 90;
                 window.scrollTo({
-                    top: offsetTop,
+                    top: targetElement.offsetTop - 90,
                     behavior: 'smooth'
                 });
             }
         });
     });
 
-    // Animation on scroll
+    // Animate on scroll
     const animateOnScroll = function() {
         const elements = document.querySelectorAll('.animate-on-scroll');
         
@@ -132,13 +135,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
 
-    // Initial check for elements in view
-    animateOnScroll();
-    
-    // Check on scroll
     window.addEventListener('scroll', animateOnScroll);
+    animateOnScroll(); // Initial check
 
-    // Contact form handling
+    // Form submission
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -151,112 +151,84 @@ document.addEventListener('DOMContentLoaded', function() {
             const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
             
-            // Simple validation
-            if (!name || !email || !subject || !message) {
-                alert('Please fill in all fields');
-                return;
-            }
+            // Here you would typically send the data to a server
+            // For now, we'll just show an alert
+            alert(`Thank you, ${name}! Your message has been sent. I'll get back to you soon.`);
             
-            // Here you would typically send the form data to a server
-            // For now, we'll just show a success message
-            alert('Thank you for your message! I will get back to you soon.');
+            // Reset form
             this.reset();
         });
     }
 
-    // Typing effect for hero section
-    const typedTextSpan = document.querySelector('.typed-text');
-    if (typedTextSpan) {
-        const textArray = ['Software Engineer', 'Full Stack Developer', 'UI/UX Enthusiast'];
-        const typingDelay = 100;
-        const erasingDelay = 50;
-        const newTextDelay = 1500;
-        let textArrayIndex = 0;
-        let charIndex = 0;
-        
-        function type() {
-            if (charIndex < textArray[textArrayIndex].length) {
-                typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
-                charIndex++;
-                setTimeout(type, typingDelay);
-            } else {
-                setTimeout(erase, newTextDelay);
-            }
-        }
-        
-        function erase() {
-            if (charIndex > 0) {
-                typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
-                charIndex--;
-                setTimeout(erase, erasingDelay);
-            } else {
-                textArrayIndex++;
-                if (textArrayIndex >= textArray.length) textArrayIndex = 0;
-                setTimeout(type, typingDelay + 500);
-            }
-        }
-        
-        // Start the typing effect
-        setTimeout(type, 1000);
-    }
-
-    // Add loading animation
-    window.addEventListener('load', function() {
-        document.body.classList.add('loaded');
-    });
-
-    // Enhanced hover effects for project cards
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-15px) scale(1.02)';
+    // Add hover effect to skill items
+    const skillItems = document.querySelectorAll('.skill-item');
+    skillItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.05)';
         });
         
-        card.addEventListener('mouseleave', function() {
+        item.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0) scale(1)';
         });
     });
 
-    // Skill progress bars animation
-    const skillBars = document.querySelectorAll('.progress-bar');
-    const animateSkillBars = function() {
-        skillBars.forEach(bar => {
-            const barPosition = bar.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.1;
-            
-            if (barPosition < screenPosition) {
-                bar.classList.add('animated');
+    // Add typing effect to hero text
+    const heroText = document.querySelector('.hero h1');
+    if (heroText) {
+        const text = heroText.textContent;
+        heroText.textContent = '';
+        
+        let i = 0;
+        const typeWriter = () => {
+            if (i < text.length) {
+                heroText.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
             }
-        });
-    };
-    
-    // Initial check and on scroll
-    animateSkillBars();
-    window.addEventListener('scroll', animateSkillBars);
+        };
+        
+        // Start typing effect after a short delay
+        setTimeout(typeWriter, 500);
+    }
 
-    // Add active class to navigation links based on scroll position
+    // Add parallax effect to background elements
+    window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll('.bg-animation .circle, .section-bg-animation .section-bg-circle');
+        
+        parallaxElements.forEach(element => {
+            const speed = 0.5;
+            const yPos = -(scrolled * speed);
+            element.style.transform = `translateY(${yPos}px)`;
+        });
+    });
+
+    // Add active class to navbar links based on scroll position
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-    
-    function updateActiveNavLink() {
+
+    window.addEventListener('scroll', function() {
         let current = '';
         
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
             
-            if (scrollY >= (sectionTop - 150)) {
+            if (pageYOffset >= sectionTop - 150) {
                 current = section.getAttribute('id');
             }
         });
-        
+
         navLinks.forEach(link => {
             link.classList.remove('active');
             if (link.getAttribute('href') === `#${current}`) {
                 link.classList.add('active');
             }
         });
-    }
-    
-    window.addEventListener('scroll', updateActiveNavLink);
+    });
+
+    // Add loading animation
+    window.addEventListener('load', function() {
+        document.body.classList.add('loaded');
+    });
 });
