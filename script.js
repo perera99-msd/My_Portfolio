@@ -139,26 +139,50 @@ document.addEventListener('DOMContentLoaded', function() {
     animateOnScroll(); // Initial check
 
     // Form submission
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            // Here you would typically send the data to a server
-            // For now, we'll just show an alert
-            alert(`Thank you, ${name}! Your message has been sent. I'll get back to you soon.`);
-            
-            // Reset form
-            this.reset();
+   // Form submission with EmailJS
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    // Initialize EmailJS with your public key
+    emailjs.init("YOUR_PUBLIC_KEY"); // You'll get this from EmailJS dashboard
+    
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+        
+        // Show loading state
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.disabled = true;
+        
+        // Send email using EmailJS
+        emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+            from_name: name,
+            from_email: email,
+            subject: subject,
+            message: message,
+            to_email: "msdperera99@gmail.com"
+        })
+        .then(function(response) {
+            alert(`Thank you, ${name}! Your message has been sent successfully. I'll get back to you soon.`);
+            contactForm.reset();
+        })
+        .catch(function(error) {
+            alert('Sorry, there was an error sending your message. Please try again or contact me directly at msdperera99@gmail.com');
+            console.error('EmailJS Error:', error);
+        })
+        .finally(function() {
+            // Reset button state
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
         });
-    }
+    });
+}
 
     // Add hover effect to skill items
     const skillItems = document.querySelectorAll('.skill-item');
