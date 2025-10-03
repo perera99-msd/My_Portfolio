@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     // Initialize EmailJS with your public key
-    emailjs.init("YOUR_PUBLIC_KEY"); // You'll get this from EmailJS dashboard
+    emailjs.init("fg1Bm34uaxF59svck"); // You'll get this from EmailJS dashboard
     
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -161,7 +161,7 @@ if (contactForm) {
         submitBtn.disabled = true;
         
         // Send email using EmailJS
-        emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+        emailjs.send("service_p9njvfr", "template_jiot9hu", {
             from_name: name,
             from_email: email,
             subject: subject,
