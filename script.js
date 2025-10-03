@@ -161,7 +161,7 @@ if (contactForm) {
         submitBtn.disabled = true;
         
         // Send email using EmailJS
-        emailjs.send("service_p9njvfr", "template_jiot9hu", {
+        emailjs.send("service_o6by6fp", "template_jiot9hu", {
             from_name: name,
             from_email: email,
             subject: subject,
