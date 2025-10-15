@@ -285,6 +285,11 @@ body {
     color: var(--text-color);
 }
 
+.education-year {
+    color: #b0b0b0 !important;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
 .project-card {
     border-radius: 15px;
     overflow: hidden;
