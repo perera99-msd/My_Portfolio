@@ -1,46 +1,54 @@
-# Dimalsha Perera - Portfolio
+# ⚡ Dimalsha Perera - Portfolio
 
-![Portfolio Preview](https://img.shields.io/badge/Portfolio-Live-success)
-![GitHub last commit](https://img.shields.io/github/last-commit/perera99-msd/portfolio)
-![GitHub](https://img.shields.io/badge/Status-Active-brightgreen)
+![Portfolio Preview](https://img.shields.io/badge/Style-Obsidian%20Glass-blueviolet)
+![Status](https://img.shields.io/badge/Status-Active-success)
+![Focus](https://img.shields.io/badge/Focus-Full%20Stack%20Engineering-blue)
 
-A modern, responsive portfolio website showcasing my projects, skills, and experience as a Software Engineering student.
+A premium, highly responsive personal portfolio website featuring a modern **"Obsidian Glass" UI**, physics-based floating animations, and a seamless user experience. Designed to showcase my projects, certifications, and technical arsenal as a Software Engineering student.
 
 ## 🚀 Live Demo
 
 **[https://dimalshaperera.pages.dev/](https://dimalshaperera.pages.dev/)**
 
-## ✨ Features
+---
 
-- **Modern Design** - Clean and professional UI with smooth animations
-- **Fully Responsive** - Optimized for all devices (desktop, tablet, mobile)
-- **Interactive Elements** - Particle.js background, scroll animations, and hover effects
-- **Project Showcase** - Detailed project cards with live demos and GitHub links
-- **Contact Form** - Functional contact form for easy communication
+## ✨ Key Features
+
+* **💎 Obsidian Glassmorphism:** A custom, deep-dark frosted glass UI with subtle glowing borders and blurs.
+* **🎭 Advanced Animations:**
+    * **Scroll Reveal:** Elements fade and slide in using `IntersectionObserver`.
+    * **Premium Float:** Physics-based multi-axis floating animations for hero elements.
+    * **Magnetic Spotlights:** Cards react to mouse movement with dynamic lighting effects.
+* **📱 Fully Responsive:** Optimized layout for Desktop, Tablet, and Mobile devices using Bootstrap 5 grid and custom Flexbox/Grid.
+* **🛠️ Tech Marquee:** An infinite scrolling loop showcasing the full technical stack.
+* **📜 Interactive Timeline:** A sleek, vertical timeline for Experience and Education.
+* **📧 Functional Contact Form:** Integrated with **EmailJS** for real-time email delivery.
+
+---
 
 ## 🛠️ Technologies Used
 
-### Frontend
+### Built With
+* **Core:** HTML5, CSS3 (Custom Properties, Keyframes), Vanilla JavaScript (ES6+).
+* **Frameworks:** Bootstrap 5.3.0.
+* **Icons:** Font Awesome 6.4.0.
+* **Services:** EmailJS (Contact Form API).
 
-- HTML5, CSS3, JavaScript
-- Bootstrap 5.3.0
-- Font Awesome 6.4.0
-- Particles.js for background animations
-- Animate.css for animations
+### Skills Showcased
+* **Frontend:** React.js, Next.js, HTML/CSS
+* **Backend:** Node.js, Express, Spring Boot, PHP
+* **Languages:** Java, C++, Python, JavaScript
+* **Database:** MongoDB, MySQL
 
-### Backend & Tools
-
-- React.js, Node.js
-- PHP, MySQL
-- Java, C++
-- Git, GitHub
+---
 
 ## 📁 Project Structure
 
+```bash
 portfolio/
-├── index.html # Main portfolio page
-├── style.css # Custom styles
-├── script.js # JavaScript functionality
-├── PS/ # College assignment portfolio
-├── assets/ # Images and resources
-└── README.md # Project documentation
+├── index.html          # Main structure with semantic HTML
+├── style.css           # Custom CSS (Glassmorphism, Animations, Variables)
+├── script.js           # Logic for Scroll Reveal, Spotlight, & EmailJS
+├── assets/             # Images (Logos, Project Screenshots)
+├── My Certificates/    # Certification images
+└── README.md           # Documentation
