@@ -8,7 +8,7 @@ A premium, highly responsive personal portfolio website featuring a modern **"Ob
 
 ## 🚀 Live Demo
 
-**[https://dimalshaperera.pages.dev/](https://dimalshaperera.pages.dev/)**
+**[https://dimalshaperera.netlify.app/](https://dimalshaperera.netlify.app/)**
 
 ---
 
