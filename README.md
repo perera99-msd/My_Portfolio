@@ -92,7 +92,7 @@ git clone https://github.com/perera99-msd/My_Portfolio.git
 You can run it instantly (no build step needed):
 
 - Open `index.html` in a browser, **or**
-- Use VS Code + Live Server extension for best experience 🧩
+- Use VS Code and Live Server extension for best experience 🧩
 
 ---
 
