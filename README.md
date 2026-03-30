@@ -1,143 +1,168 @@
-# ⚡ Dimalsha Perera — Software Engineering Portfolio
+# ⚡ Dimalsha Perera — Premium Software Engineering Portfolio
 
-![Style](https://img.shields.io/badge/Style-Obsidian%20Glass-blueviolet)
-![Status](https://img.shields.io/badge/Status-Active-success)
-![Focus](https://img.shields.io/badge/Focus-Full%20Stack%20Engineering-0ea5e9)
+![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)
+![React](https://img.shields.io/badge/React-18-0ea5e9?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-Ready-3178c6?style=for-the-badge&logo=typescript)
+![Style](https://img.shields.io/badge/Style-Obsidian%20Glass-8b5cf6?style=for-the-badge)
 
-A premium, highly responsive personal portfolio website built to showcase my **projects**, **certifications**, and **technical skill set** as a Software Engineering student.  
-Designed with a modern **Obsidian Glass** aesthetic, smooth interactions, and performance-friendly animations for a polished user experience. ✨🖤
+A high-performance, interactive personal portfolio built to showcase my **projects**, **certifications**, and **technical skill set** as a Full Stack Software Engineer. 
+
+Originally built in Vanilla HTML/JS, this project has been fully migrated to a modern **Next.js (App Router)** and **TypeScript** architecture. It features a custom **Obsidian Glass** aesthetic, custom React hooks for physics-based animations, and seamless performance. ✨🖤
 
 ---
 
 ## 🌐 Live Demo
 
-🔗 **https://dimalshaperera.netlify.app/**
+🔗 **[dimalshaperera.netlify.app](https://dimalshaperera.netlify.app/)** *(Update with your new Next.js deployment link!)*
 
 ---
 
 ## 📸 Preview
 
-🖼️ **Portfolio Preview**  
-> Add or replace the preview image below to match your latest UI.
+> Add a high-quality screenshot or GIF of your new Hero section and 3D Carousel here.
 
 ![Portfolio Preview](https://img.shields.io/badge/Preview-Add%20Screenshot%20Here-111827?style=for-the-badge)
 
 ---
 
-## ✨ Highlights & Features
+## ✨ Architectural Highlights & Features
 
 ### 💎 Obsidian Glass UI (Glassmorphism)
-- Deep-dark frosted panels with blur and subtle glow accents
-- Clean typography and consistent spacing for a premium feel
-- Carefully tuned colors and shadows for depth and contrast
+- Deep-dark frosted panels with dynamic blur and subtle glow accents.
+- Modern typography (`Space Grotesk` & `Inter`) and carefully tuned CSS variables for premium depth and contrast.
 
-### 🎭 Motion & Interactions
-- **Scroll Reveal**: Sections animate into view using `IntersectionObserver` for smooth, modern transitions 👀  
-- **Premium Float Animation**: Multi-axis floating motion for hero elements to create a “living” interface 🪄  
-- **Magnetic Spotlights**: Cards respond to mouse movement with dynamic lighting effects ✨🧲  
+### ⚛️ Advanced React & Next.js Implementation
+- **App Router Architecture:** Utilizes the latest Next.js 14 `app/` directory structure for optimal routing.
+- **Custom React Hooks:** Replaced vanilla DOM scripts with reusable, performant React hooks:
+  - `useSpotlight`: Tracks mouse coordinates to generate a dynamic lighting effect on cards.
+  - `useTilt`: A lightweight, custom physics hook calculating mouse trajectory for 3D card tilting.
+  - `useScrollReveal`: Utilizes the `IntersectionObserver` API integrated into the React lifecycle.
+- **Client/Server Component Separation:** Optimized rendering by isolating interactive elements inside `"use client"` boundaries while keeping the layout server-rendered.
 
-### 📱 Fully Responsive Layout
-- Optimized for **Desktop**, **Tablet**, and **Mobile**
-- Built with **Bootstrap 5 grid** + custom **Flexbox/Grid** tweaks for clean breakpoints 📐
+### 🎪 Interactive Masterpieces
+- **3D Feature Carousel:** A draggable, auto-rotating 3D CSS carousel built entirely in React state for showcasing flagship projects.
+- **Infinite Tech Marquee:** A seamless, CSS-driven infinite loop highlighting the technical arsenal.
 
-### 🛠️ Tech Marquee
-- An infinite scrolling “tech stack” showcase loop for quick visual scanning 🧰⚙️
-
-### 📜 Interactive Timeline
-- Vertical timeline for **Experience** and **Education** with a sleek, readable layout 🗓️
-
-### 📬 Functional Contact Form
-- Integrated with **EmailJS** for real-time email delivery (no backend required) ✉️🚀
+### 📬 Real-time Contact Integration
+- Serverless email delivery powered by **@emailjs/browser**, featuring active loading states and error handling directly in the UI.
 
 ---
 
 ## 🧰 Tech Stack
 
-### ✅ Built With
-- **Core:** HTML5, CSS3, JavaScript (ES6+)
-- **Frameworks/Libraries:** Bootstrap 5.3.0
-- **Icons:** Font Awesome 6.4.0
-- **Service Integration:** EmailJS (Contact Form API)
-
-### 🧠 Skills Highlighted in the Portfolio
-- **Frontend:** React.js, Next.js, HTML/CSS
-- **Backend:** Node.js, Express, Spring Boot, PHP
-- **Languages:** Java, C++, Python, JavaScript
-- **Databases:** MongoDB, MySQL
+- **Framework:** Next.js 14.2 (App Router)
+- **Library:** React 18
+- **Language:** TypeScript / JavaScript (ES6+)
+- **Styling:** Custom CSS (Obsidian Glass Theme) + Bootstrap 5 Grid System
+- **Integrations:** EmailJS
+- **Version Control:** Git & GitHub (Main -> Develop -> Feature branching strategy)
 
 ---
 
 ## 📁 Project Structure
 
-```bash
+```text
 My_Portfolio/
-├── index.html               # Main page (semantic structure & sections)
-├── style.css                # Global styles (glass UI, animations, variables)
-├── script.js                # UI logic (reveal, spotlight, EmailJS, interactions)
-├── assets/                  # Images (logos, screenshots, icons)
-├── My Certificates/         # Certification images
-└── README.md                # Project documentation
+├── public/                     # Static media assets (Next.js optimized)
+│   ├── Featured/               # MP4 videos for 3D Carousel
+│   ├── My Certificates/        # Certification badges & images
+│   ├── Project Images/         # Screenshots of featured work
+│   ├── DimalshaPerera_Resume.pdf 
+│   └── Logo.jpg
+├── src/
+│   ├── app/                    # Next.js App Router Core
+│   │   ├── globals.css         # Master stylesheet (CSS variables, animations)
+│   │   ├── layout.tsx          # Root wrapper, Meta tags, and Global Scripts
+│   │   └── page.tsx            # Main assembly of all components
+│   └── components/             # Modular React Components
+│       ├── About.tsx
+│       ├── AnimationProvider.tsx # Global DOM observer for scroll reveals
+│       ├── BackgroundSystem.tsx  # Floating orbs & noise overlay
+│       ├── Certifications.tsx
+│       ├── Contact.tsx         # EmailJS integrated form
+│       ├── Experience.tsx
+│       ├── Featured.tsx        # 3D Draggable Carousel
+│       ├── Footer.tsx
+│       ├── Hero.tsx
+│       ├── Navbar.tsx          # Scroll-aware dynamic navbar
+│       ├── Projects.tsx        
+│       ├── Skills.tsx
+│       ├── TechMarquee.tsx
+│       ├── useScrollReveal.ts  # Custom Hook
+│       ├── useSpotlight.ts     # Custom Hook
+│       └── useTilt.ts          # Custom Hook
+├── .gitignore
+├── package.json
+└── tsconfig.json
 ```
 
 ---
 
 ## 🚀 Getting Started (Local Setup)
 
+Want to run this locally? Follow these steps:
+
 ### 1️⃣ Clone the repository
+
 ```bash
 git clone https://github.com/perera99-msd/My_Portfolio.git
+cd My_Portfolio
 ```
 
-### 2️⃣ Open the project
-You can run it instantly (no build step needed):
+### 2️⃣ Install Dependencies
 
-- Open `index.html` in a browser, **or**
-- Use VS Code and Live Server extension for best experience 🧩
+```bash
+npm install
+```
 
----
+### 3️⃣ Run the Development Server
 
-## 📬 EmailJS Setup (Contact Form)
+```bash
+npm run dev
+```
 
-To enable the contact form submission:
-
-1. Create an account at **EmailJS**
-2. Create an email service + template
-3. Update the EmailJS configuration inside `script.js` with:
-   - `PUBLIC_KEY`
-   - `SERVICE_ID`
-   - `TEMPLATE_ID`
-
-> ✅ Tip: Keep keys organized and avoid committing sensitive credentials if you later add a backend or environment config.
+Open http://localhost:3000 in your browser to see the application running.
 
 ---
 
-## 🎯 Goals of This Project
+## 🔐 Environment Setup (Contact Form)
 
-- Present my profile and capabilities in a **high-quality**, modern UI 🧑‍���
-- Showcase real projects, certifications, and tools in a structured, readable format 📚
-- Practice UI engineering concepts like motion design, responsiveness, and performance-friendly interactions ⚡
+If you fork this project, you will need to set up your own EmailJS account for the contact form to work.
+
+1. Create a free account at EmailJS.
+2. Create an Email Service and an Email Template.
+3. Update the credentials inside src/components/Contact.tsx:
+
+```js
+const SERVICE_ID = 'your_service_id';
+const TEMPLATE_ID = 'your_template_id';
+const PUBLIC_KEY = 'your_public_key';
+```
+
+(For production, it is recommended to move these to a .env.local file).
 
 ---
 
-## 🛣️ Future Improvements (Planned)
+## 👨‍💻 Git Workflow Standard
 
-- 🔍 Add a dedicated **Projects** page with filters/tags
-- 🌓 Add **theme toggle** (Obsidian / Light Frost)
-- 🧪 Improve accessibility (ARIA labels, contrast checks, keyboard navigation)
-- 🚀 Optimize asset loading (compression + lazy loading for images)
-- 📈 Add basic analytics for page engagement (privacy-friendly)
+This project follows a professional branching model:
+
+- `main` - Production-ready code.
+- `develop` - Active development and staging branch.
+- `feature/*` or `dev-*` - Isolated branches for new components or fixes.
 
 ---
 
 ## 📄 License
 
-This project is intended for personal portfolio use.  
-If you want to reuse the layout or components, please provide attribution. 🙏
+This project is intended for personal portfolio use. If you wish to draw inspiration from the Obsidian Glass UI or the custom React hooks, please provide attribution. 🙏
 
 ---
 
 ## 👤 Author
 
-**Dimalsha Perera**  
-💼 Software Engineering Student | Aspiring Full Stack Engineer  
-🌐 Portfolio: https://dimalshaperera.netlify.app/
+Dimalsha Perera 💼 Software Engineering Student | Aspiring Full Stack Engineer
+
+🌐 GitHub: @perera99-msd
+
+🔗 LinkedIn: Dimalsha Perera
