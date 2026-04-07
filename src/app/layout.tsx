@@ -1,35 +1,42 @@
+import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
+import { Cormorant_Garamond, Manrope } from 'next/font/google';
 import './globals.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import AnimationProvider from '../components/AnimationProvider';
-import Script from 'next/script';
 
-export const metadata = {
-  title: 'Dimalsha Perera | Software Engineer',
-  description: 'Premium Obsidian Glass Portfolio',
+import AnimationProvider from '../components/AnimationProvider';
+import BackgroundSystem from '../components/BackgroundSystem';
+import FloatingNav from '../components/FloatingNav';
+import Footer from '../components/Footer';
+
+const manrope = Manrope({
+  subsets: ['latin'],
+  variable: '--font-body',
+  weight: ['400', '500', '600', '700', '800'],
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  variable: '--font-display',
+  weight: ['400', '500', '600', '700'],
+});
+
+export const metadata: Metadata = {
+  title: 'Dimalsha Perera | Motion-First Software Engineer',
+  description: 'A premium, interactive portfolio with glassmorphism, 3D accents, and fast Next.js routing.',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="icon" href="/Logo.jpg" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-      </head>
-      <body>
-        {/* Global DOM Animations */}
+    <html lang="en" className={`scroll-smooth ${manrope.variable} ${cormorant.variable}`}>
+      <body className="antialiased selection:bg-white selection:text-black">
+        <BackgroundSystem />
         <AnimationProvider />
-        
-        {children}
+        <FloatingNav />
 
-        {/* Required Scripts for Interactions */}
-        <Script 
-          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
-          strategy="lazyOnload" 
-        />
-        <Script 
-          src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" 
-          strategy="lazyOnload" 
-        />
+        <div className="relative z-10 flex min-h-screen flex-col">
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );
