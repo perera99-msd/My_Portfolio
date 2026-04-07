@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowUpRight, BriefcaseBusiness, GraduationCap, ShieldCheck, Sparkles } from 'lucide-react';
 
 import AboutBackdrop from '../../components/AboutBackdrop';
+import CertificationsShowcase from '../../components/about/CertificationsShowcase';
 import { certifications, skillGroups, timeline } from '../../lib/portfolio-data';
 
 const principles = [
@@ -156,19 +157,7 @@ export default function AboutPage() {
         <article className="glass-panel about-panel lg:col-span-6 p-6 lg:p-7">
           <span className="section-kicker text-[#f2bf8f]">Credentials</span>
           <h2 className="section-title text-[#fff8ef]">Verified learning and certifications.</h2>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            {certifications.slice(0, 4).map((certificate) => (
-              <a key={certificate.title} href={certificate.href} target="_blank" rel="noreferrer" className="glass-panel-soft about-panel-soft p-3">
-                <div className="project-media h-44">
-                  <Image src={certificate.image} alt={certificate.title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 25vw" />
-                </div>
-                <div className="mt-3 space-y-1.5">
-                  <h3 className="text-sm font-semibold text-[#fff8ef]">{certificate.title}</h3>
-                  <p className="text-xs" style={{ color: 'rgba(255, 240, 227, 0.7)' }}>{certificate.org}</p>
-                </div>
-              </a>
-            ))}
-          </div>
+          <CertificationsShowcase certifications={certifications} />
         </article>
       </section>
 

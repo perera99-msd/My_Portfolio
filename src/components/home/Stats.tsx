@@ -1,153 +1,161 @@
 "use client";
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Bot, Code2, PenTool, Cloud, ArrowUpRight, MapPin } from 'lucide-react';
 import Reveal from '../Reveal';
 
+const disciplines = [
+  { icon: Bot, label: 'AI Automations' },
+  { icon: Code2, label: 'Web Development' },
+  { icon: PenTool, label: 'UI/UX Designing' },
+  { icon: Cloud, label: 'Cloud Deployments' },
+];
+
 export default function ProfileOverview() {
   return (
-    <section className="relative z-10 mx-auto w-full max-w-[1600px] px-4 py-10 sm:px-6 lg:px-12 lg:py-24">
-      
-      {/* PREMIUM BENTO GRID 
-          Left: Massive Profile Anchor (Span 2)
-          Right: Services & Status Column (Span 1)
-      */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
-        
-        {/* === LEFT CARD: THE IDENTITY (Span 2) === */}
+    <section className="relative z-10 mx-auto w-full max-w-400 px-4 py-10 sm:px-6 lg:px-12 lg:py-24">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-6">
         <Reveal delay={0.1} className="lg:col-span-2 h-full">
-          <motion.div 
-            whileHover={{ backgroundColor: "rgba(255, 255, 255, 0.03)" }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="group relative flex h-full min-h-[340px] flex-col justify-between overflow-hidden rounded-[2rem] border border-white/[0.04] bg-white/[0.01] p-6 sm:p-8 lg:p-14 backdrop-blur-[50px] shadow-[0_20px_80px_-20px_rgba(0,0,0,0.5),inset_0_0_0_1px_rgba(255,255,255,0.02)]"
+          <motion.div
+            whileHover={{ backgroundColor: 'rgba(255, 255, 255, 0.045)' }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="group relative flex h-full min-h-105 flex-col justify-between overflow-hidden rounded-[2.2rem] border border-white/8 bg-[rgba(255,255,255,0.015)] p-5 shadow-[0_28px_90px_-36px_rgba(0,0,0,0.95),inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-[34px] sm:p-8 lg:p-14"
           >
-            {/* Deep Ambient Glow */}
-            <div className="absolute -left-32 -top-32 h-[500px] w-[500px] rounded-full bg-white/[0.02] blur-[120px] transition-all duration-700 group-hover:bg-white/[0.04]" />
+            <div className="absolute -left-20 -top-24 h-105 w-105 rounded-full bg-white/8 blur-[130px] transition-all duration-700 group-hover:bg-white/12" />
+            <div className="absolute right-[-8%] top-[22%] h-65 w-65 rounded-full bg-white/6 blur-[120px] transition-all duration-700 group-hover:bg-white/10" />
+            <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-black/35 to-transparent" />
 
-            <div className="relative z-10">
-              <span className="text-[0.65rem] font-bold uppercase tracking-[0.4em] text-white/50">
-                Introduction
-              </span>
-              <h2 className="mt-6 font-serif text-4xl leading-[1.05] tracking-wide text-white uppercase sm:text-5xl lg:mt-8 lg:text-7xl">
-                Dimalsha <br className="hidden lg:block"/>
-                <span className="text-white/40 italic font-light">Perera</span>
-              </h2>
-              
-              <div className="mt-6 flex items-center gap-3 sm:mt-8 sm:gap-4">
-                <div className="h-[1px] w-12 bg-white/30" />
-                <span className="text-xs lg:text-sm font-bold uppercase tracking-[0.25em] text-white/80">
+            <div className="relative z-10 flex flex-col gap-5 sm:gap-7">
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="inline-flex items-center rounded-full border border-white/12 bg-white/6 px-3 py-1 text-[0.55rem] font-bold uppercase tracking-[0.28em] text-white/68 backdrop-blur-md">
+                  Introduction
+                </span>
+                <span className="inline-flex items-center rounded-full border border-white/12 bg-white/6 px-3 py-1 text-[0.55rem] font-bold uppercase tracking-[0.22em] text-white/72 backdrop-blur-md">
                   Full-Stack Software Engineer
                 </span>
               </div>
+
+              <div>
+                <h2 className="max-w-4xl font-serif text-[clamp(3rem,7vw,6.6rem)] leading-[0.9] tracking-[-0.03em] text-white uppercase">
+                  Dimalsha <span className="block text-white/45 italic font-light">Perera</span>
+                </h2>
+
+                <div className="mt-5 h-px w-20 bg-linear-to-r from-white/55 to-transparent sm:mt-7" />
+              </div>
             </div>
 
-            <div className="relative z-10 mt-10 sm:mt-14 lg:mt-16">
-              <p className="max-w-2xl text-base font-medium leading-[1.8] text-white/60 sm:text-lg lg:text-xl">
+            <div className="relative z-10 mt-10 max-w-3xl sm:mt-14">
+              <p className="text-[0.98rem] leading-[1.9] text-white/68 sm:text-[1.08rem] lg:text-[1.15rem]">
                 &ldquo;Crafting scalable architectures and exceptional digital experiences. I bridge the gap between complex machine logic and intuitive, human-centered UI design.&rdquo;
               </p>
             </div>
 
-            {/* Giant Architectural Background Text */}
-            <div className="absolute bottom-[-12%] right-[-5%] z-0 hidden select-none opacity-[0.02] mix-blend-overlay transition-opacity duration-700 pointer-events-none group-hover:opacity-[0.04] sm:block">
-              <span className="font-serif text-[10rem] lg:text-[14rem] uppercase leading-none font-bold">
+            <div className="relative z-10 mt-8 grid gap-3 sm:mt-10 sm:grid-cols-[1fr_auto] sm:items-center">
+              <div className="flex flex-wrap items-center gap-2 text-[0.58rem] font-semibold uppercase tracking-[0.2em] text-white/48 sm:gap-3">
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-2">Next.js</span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-2">React</span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-2">MERN Stack</span>
+              </div>
+
+              <Link
+                href="/projects"
+                className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-3 text-[0.62rem] font-bold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:border-white/30 hover:bg-white/16 hover:shadow-[0_0_28px_rgba(255,255,255,0.08)] sm:px-5"
+              >
+                <span className="relative pb-1 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:bg-white/45 transition-all group-hover:after:bg-white">
+                  Explore Work
+                </span>
+                <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </Link>
+            </div>
+
+            <div className="absolute bottom-[-14%] right-[-4%] hidden select-none opacity-[0.03] mix-blend-overlay transition-opacity duration-700 pointer-events-none sm:block group-hover:opacity-[0.055]">
+              <span className="font-serif text-[9rem] leading-none font-bold uppercase lg:text-[13rem]">
                 ENGINEER
               </span>
             </div>
           </motion.div>
         </Reveal>
 
-        {/* === RIGHT COLUMN: SERVICES & STATUS === */}
-        <div className="lg:col-span-1 flex flex-col gap-4 lg:gap-6 h-full">
-          
-          {/* TOP RIGHT CARD: WHAT I DO */}
+        <div className="flex flex-col gap-4 lg:gap-6">
           <Reveal delay={0.2} className="flex-1">
-            <motion.div 
-              whileHover={{ backgroundColor: "rgba(255, 255, 255, 0.03)" }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="group relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-white/[0.04] bg-white/[0.01] p-6 sm:p-8 backdrop-blur-[50px] shadow-[0_20px_80px_-20px_rgba(0,0,0,0.5),inset_0_0_0_1px_rgba(255,255,255,0.02)]"
+            <motion.div
+              whileHover={{ backgroundColor: 'rgba(255, 255, 255, 0.04)' }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              className="group relative flex h-full flex-col overflow-hidden rounded-4xl border border-white/8 bg-[rgba(255,255,255,0.015)] p-5 shadow-[0_24px_80px_-34px_rgba(0,0,0,0.95),inset_0_1px_0_rgba(255,255,255,0.05)] backdrop-blur-[34px] sm:p-8"
             >
-              <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/[0.02] blur-[80px] transition-all duration-700 group-hover:bg-white/[0.04]" />
-              
-              <h3 className="relative z-10 text-xs font-bold uppercase tracking-[0.3em] text-white/50 mb-8">
-                Core Disciplines
-              </h3>
-              
-              <ul className="relative z-10 flex flex-col gap-5 mt-auto">
-                <li className="flex items-center gap-4 group/item cursor-default">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.02] transition-colors duration-300 group-hover/item:bg-white group-hover/item:text-black text-white/70">
-                    <Bot className="h-4 w-4" />
-                  </div>
-                  <span className="text-[0.8rem] font-bold tracking-[0.15em] text-white/70 uppercase transition-colors duration-300 group-hover/item:text-white">AI Automations</span>
-                </li>
-                <li className="flex items-center gap-4 group/item cursor-default">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.02] transition-colors duration-300 group-hover/item:bg-white group-hover/item:text-black text-white/70">
-                    <Code2 className="h-4 w-4" />
-                  </div>
-                  <span className="text-[0.8rem] font-bold tracking-[0.15em] text-white/70 uppercase transition-colors duration-300 group-hover/item:text-white">Web Development</span>
-                </li>
-                <li className="flex items-center gap-4 group/item cursor-default">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.02] transition-colors duration-300 group-hover/item:bg-white group-hover/item:text-black text-white/70">
-                    <PenTool className="h-4 w-4" />
-                  </div>
-                  <span className="text-[0.8rem] font-bold tracking-[0.15em] text-white/70 uppercase transition-colors duration-300 group-hover/item:text-white">UI/UX Designing</span>
-                </li>
-                <li className="flex items-center gap-4 group/item cursor-default">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.02] transition-colors duration-300 group-hover/item:bg-white group-hover/item:text-black text-white/70">
-                    <Cloud className="h-4 w-4" />
-                  </div>
-                  <span className="text-[0.8rem] font-bold tracking-[0.15em] text-white/70 uppercase transition-colors duration-300 group-hover/item:text-white">Cloud Deployments</span>
-                </li>
+              <div className="absolute -right-16 -top-20 h-56 w-56 rounded-full bg-white/6 blur-[100px] transition-all duration-700 group-hover:bg-white/10" />
+              <div className="relative z-10 mb-6 flex items-center justify-between gap-4">
+                <h3 className="text-[0.66rem] font-bold uppercase tracking-[0.3em] text-white/52">
+                  Core Disciplines
+                </h3>
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[0.52rem] font-semibold uppercase tracking-[0.22em] text-white/45">
+                  04 Focus Areas
+                </span>
+              </div>
+
+              <ul className="relative z-10 mt-auto grid gap-3 sm:gap-4">
+                {disciplines.map(({ icon: Icon, label }) => (
+                  <li key={label} className="group/item flex items-center gap-3 rounded-2xl border border-white/8 bg-white/3 px-4 py-3 transition-all duration-300 hover:border-white/18 hover:bg-white/8">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/75 transition-all duration-300 group-hover/item:border-white/20 group-hover/item:bg-white group-hover/item:text-black">
+                      <Icon className="h-4 w-4" />
+                    </div>
+                    <span className="text-[0.76rem] font-bold uppercase tracking-[0.16em] text-white/72 transition-colors duration-300 group-hover/item:text-white sm:text-[0.82rem]">
+                      {label}
+                    </span>
+                  </li>
+                ))}
               </ul>
             </motion.div>
           </Reveal>
 
-          {/* BOTTOM RIGHT CARD: STATUS / LOCATION */}
           <Reveal delay={0.3} className="h-auto">
-            <motion.div 
-              whileHover={{ backgroundColor: "rgba(255, 255, 255, 0.03)" }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="group relative overflow-hidden rounded-[2rem] border border-white/[0.04] bg-white/[0.01] p-6 sm:p-8 backdrop-blur-[50px] shadow-[0_20px_80px_-20px_rgba(0,0,0,0.5),inset_0_0_0_1px_rgba(255,255,255,0.02)]"
+            <motion.div
+              whileHover={{ backgroundColor: 'rgba(255, 255, 255, 0.04)' }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              className="group relative overflow-hidden rounded-4xl border border-white/8 bg-[rgba(255,255,255,0.015)] p-5 shadow-[0_24px_80px_-34px_rgba(0,0,0,0.95),inset_0_1px_0_rgba(255,255,255,0.05)] backdrop-blur-[34px] sm:p-8"
             >
-              <div className="mb-6 flex flex-col gap-4 sm:mb-8 sm:flex-row sm:items-start sm:justify-between">
-                <div className="flex flex-col gap-2">
-                  <span className="text-[0.55rem] font-bold uppercase tracking-[0.3em] text-white/50">
-                    Location Base
-                  </span>
-                  <div className="flex items-center gap-2 text-white/80">
-                    <MapPin className="h-4 w-4" />
-                    <span className="font-serif tracking-widest text-lg">Sri Lanka</span>
+              <div className="absolute -left-20 top-8 h-48 w-48 rounded-full bg-white/8 blur-[90px] transition-all duration-700 group-hover:bg-white/12" />
+
+              <div className="relative z-10 flex flex-col gap-6">
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                  <div className="flex flex-col gap-2">
+                    <span className="text-[0.55rem] font-bold uppercase tracking-[0.3em] text-white/48">
+                      Location Base
+                    </span>
+                    <div className="flex items-center gap-2 text-white/84">
+                      <MapPin className="h-4 w-4 text-white/60" />
+                      <span className="font-serif text-lg tracking-[0.2em] sm:text-xl">Sri Lanka</span>
+                    </div>
+                  </div>
+
+                  <div className="inline-flex items-center gap-2 self-start rounded-full border border-white/12 bg-white/6 px-3 py-1.5 backdrop-blur-md sm:px-3.5">
+                    <span className="relative flex h-2 w-2">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white/70 opacity-70" />
+                      <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
+                    </span>
+                    <span className="text-[0.55rem] font-bold uppercase tracking-[0.26em] text-white/72">
+                      Available
+                    </span>
                   </div>
                 </div>
-                
-                {/* Live Availability Status Ping */}
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 backdrop-blur-md">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                  </span>
-                  <span className="text-[0.55rem] uppercase tracking-widest text-emerald-400 font-bold">
-                    Available
-                  </span>
-                </div>
-              </div>
 
-              {/* Seamless Action Link */}
-              <a 
-                href="https://cal.com/msd-perera" 
-                target="_blank" 
-                rel="noreferrer"
-                className="group/btn flex items-center justify-between border-t border-white/[0.05] pt-5 transition-colors"
-              >
-                <span className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white/60 group-hover/btn:text-white transition-colors duration-300">
-                  Book a Discovery Call
-                </span>
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/[0.03] border border-white/10 transition-all duration-300 group-hover/btn:bg-white group-hover/btn:border-white group-hover/btn:scale-110">
-                  <ArrowUpRight className="h-3 w-3 text-white/60 group-hover/btn:text-black transition-colors" />
-                </div>
-              </a>
+                <Link
+                  href="https://cal.com/msd-perera"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group/btn flex items-center justify-between rounded-2xl border border-white/8 bg-white/3 px-4 py-4 transition-all duration-300 hover:border-white/18 hover:bg-white/8"
+                >
+                  <span className="text-[0.64rem] font-bold uppercase tracking-[0.22em] text-white/64 transition-colors duration-300 group-hover/btn:text-white sm:text-[0.68rem]">
+                    Book a Discovery Call
+                  </span>
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/6 text-white/70 transition-all duration-300 group-hover/btn:border-white group-hover/btn:bg-white group-hover/btn:text-black group-hover/btn:scale-110">
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                  </div>
+                </Link>
+              </div>
             </motion.div>
           </Reveal>
-
         </div>
       </div>
     </section>

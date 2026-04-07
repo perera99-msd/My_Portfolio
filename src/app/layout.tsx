@@ -21,8 +21,13 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: 'Dimalsha Perera | Motion-First Software Engineer',
+  title: 'Dimalsha Perera | Developer',
   description: 'A premium, interactive portfolio with glassmorphism, 3D accents, and fast Next.js routing.',
+  icons: {
+    icon: '/browser/browserimage.png',
+    shortcut: '/browser/browserimage.png',
+    apple: '/browser/browserimage.png',
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

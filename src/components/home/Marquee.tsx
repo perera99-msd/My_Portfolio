@@ -120,7 +120,7 @@ function RealIconTile({ item, size = 'lg', showLabel = true }: { item: TechItem;
   };
 
   return (
-    <div className={`group relative flex flex-col items-center justify-center rounded-[1.25rem] border border-white/[0.04] bg-white/[0.01] backdrop-blur-[50px] shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5),inset_0_0_0_1px_rgba(255,255,255,0.02)] transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.04] hover:border-white/[0.1] hover:shadow-[0_20px_80px_-20px_rgba(255,255,255,0.1)] ${sizeClasses[size]}`}>
+    <div className={`group relative flex flex-col items-center justify-center rounded-[1.25rem] border border-white/4 bg-white/1 backdrop-blur-[50px] shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5),inset_0_0_0_1px_rgba(255,255,255,0.02)] transition-all duration-500 hover:-translate-y-2 hover:border-white/10 hover:bg-white/4 hover:shadow-[0_20px_80px_-20px_rgba(255,255,255,0.1)] ${sizeClasses[size]}`}>
       
       {/* Skillicons API Image - Using standard img to bypass Next.js SVG blocking */}
       <div className={`relative ${iconSizes[size]} transition-transform duration-500 group-hover:scale-110 ${showLabel ? '-mt-3' : ''}`}>
@@ -154,15 +154,15 @@ export default function TechStackArch() {
   const selectedData = useMemo(() => techCategories.find(c => c.id === activeCategory) || techCategories[0], [activeCategory]);
 
   return (
-    <section className="relative z-10 w-full max-w-[1600px] mx-auto px-4 py-20 lg:px-12 lg:py-32">
+    <section className="relative z-10 mx-auto w-full max-w-400 px-4 py-20 lg:px-12 lg:py-32">
       
       {/* Site-Consistent Header */}
       <Reveal>
         <div className="mb-12 flex flex-col items-center justify-center text-center px-2">
           <div className="mb-6 flex items-center justify-center gap-4">
-            <div className="h-[1px] w-8 bg-white/30" />
+            <div className="h-px w-8 bg-white/30" />
             <span className="text-[0.65rem] font-bold uppercase tracking-[0.3em] text-white/50">Tech Stack & Tools</span>
-            <div className="h-[1px] w-8 bg-white/30" />
+            <div className="h-px w-8 bg-white/30" />
           </div>
           <h2 className="text-white font-serif tracking-[0.05em] leading-[1.1] uppercase mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}>
             The Engineering <span className="text-white/40 italic font-light">Ecosystem</span>
@@ -174,14 +174,14 @@ export default function TechStackArch() {
       </Reveal>
 
       <Reveal delay={0.2}>
-        <div className="relative mx-auto flex min-h-[500px] lg:min-h-[600px] w-full flex-col items-center overflow-hidden rounded-[2.5rem] border border-white/[0.04] bg-white/[0.01] backdrop-blur-[20px] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8),inset_0_0_0_1px_rgba(255,255,255,0.02)] pt-10 pb-28 lg:pb-32 px-4 lg:px-12">
+        <div className="glass-panel relative mx-auto flex w-full flex-col items-center overflow-hidden rounded-[2.2rem] px-4 pb-8 pt-8 sm:min-h-125 sm:pb-24 sm:pt-10 lg:min-h-150 lg:rounded-[2.5rem] lg:px-12 lg:pb-32">
           
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.04),transparent_56%)]" />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(255,255,255,0.03),transparent_45%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.07),transparent_58%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(255,255,255,0.04),transparent_45%)]" />
           <div className="noise-overlay absolute inset-0 opacity-[0.06]" />
 
           {/* Premium Glass Category Selector */}
-          <div className="relative z-30 flex flex-wrap justify-center gap-2 rounded-full border border-white/10 bg-[#050505]/50 p-1.5 backdrop-blur-3xl shadow-[0_20px_40px_-10px_rgba(0,0,0,0.8),inset_0_1px_0_0_rgba(255,255,255,0.1)] mb-12">
+          <div className="relative z-30 mb-8 flex flex-wrap justify-center gap-2 rounded-full border border-white/14 bg-white/4 p-1.5 backdrop-blur-3xl shadow-[0_20px_40px_-12px_rgba(0,0,0,0.65),inset_0_1px_0_0_rgba(255,255,255,0.14)] sm:mb-12">
             {techCategories.map((cat) => {
               const isActive = cat.id === activeCategory;
               const Icon = cat.icon;
@@ -189,7 +189,7 @@ export default function TechStackArch() {
                 <button
                   key={cat.id}
                   onClick={() => setActiveCategory(cat.id)}
-                  className="relative flex items-center gap-2 rounded-full px-5 py-2.5 text-[0.6rem] font-bold uppercase tracking-[0.2em] transition-colors"
+                  className="relative flex items-center gap-2 rounded-full px-3.5 py-2 text-[0.56rem] font-bold uppercase tracking-[0.14em] transition-colors sm:px-5 sm:py-2.5 sm:text-[0.6rem] sm:tracking-[0.2em]"
                 >
                   <span className={`relative z-10 flex items-center gap-2 transition-colors duration-300 ${isActive ? 'text-white' : 'text-white/40 group-hover:text-white/70'}`}>
                     <Icon className="h-3.5 w-3.5" />
@@ -209,7 +209,7 @@ export default function TechStackArch() {
           </div>
 
           {/* DYNAMIC FLOATING GLASS GRID */}
-          <div className="relative z-20 w-full max-w-5xl mx-auto flex flex-wrap justify-center gap-4 lg:gap-6">
+          <div className="relative z-20 mx-auto flex w-full max-w-5xl flex-wrap justify-center gap-3 sm:gap-4 lg:gap-6">
             <AnimatePresence mode="wait">
               <motion.div
                 key={selectedData.id}
@@ -217,7 +217,7 @@ export default function TechStackArch() {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className="flex flex-wrap justify-center gap-4 lg:gap-6"
+                className="flex flex-wrap justify-center gap-3 sm:gap-4 lg:gap-6"
               >
                 {selectedData.items.map((item) => (
                   <motion.div key={item.label} variants={itemVariants}>
@@ -229,17 +229,17 @@ export default function TechStackArch() {
           </div>
 
           {/* Central Core (Current Focus) */}
-          <div className="absolute bottom-8 lg:bottom-12 left-0 right-0 flex flex-col items-center z-20">
-            <div className="mb-4 flex items-center gap-2">
+          <div className="relative z-20 mt-8 flex w-full flex-col items-center border-t border-white/10 pt-6 sm:absolute sm:bottom-8 sm:left-0 sm:right-0 sm:mt-0 sm:border-t-0 sm:pt-0 lg:bottom-12">
+            <div className="mb-3 flex items-center gap-2 sm:mb-4">
               <Zap className="h-3 w-3 text-[#dce8ff]" />
               <span className="text-[0.6rem] font-bold uppercase tracking-[0.3em] text-[#dce8ff]/70">
                 Current Focus
               </span>
             </div>
             
-            <div className="flex items-center gap-3 rounded-[1.4rem] border border-white/12 bg-[#06080d]/68 p-3 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.55)]">
+            <div className="hide-scrollbar flex w-full items-center gap-3 overflow-x-auto rounded-[1.2rem] border border-white/12 bg-white/4 p-2.5 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.45)] sm:w-auto sm:justify-center sm:rounded-[1.4rem] sm:p-3">
               {currentFocusItems.map((item) => (
-                <div key={`focus-${item.label}`} className="relative group">
+                <div key={`focus-${item.label}`} className="relative group shrink-0">
                   <RealIconTile item={item} size="md" showLabel={false} />
                 </div>
               ))}

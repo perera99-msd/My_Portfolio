@@ -1,168 +1,134 @@
-# ⚡ Dimalsha Perera — Premium Software Engineering Portfolio
+# 🚀 Dimalsha Perera Portfolio
 
 ![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)
-![React](https://img.shields.io/badge/React-18-0ea5e9?style=for-the-badge&logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-Ready-3178c6?style=for-the-badge&logo=typescript)
-![Style](https://img.shields.io/badge/Style-Obsidian%20Glass-8b5cf6?style=for-the-badge)
+![React](https://img.shields.io/badge/React-18-149eca?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?style=for-the-badge&logo=typescript)
+![Framer Motion](https://img.shields.io/badge/Framer%20Motion-12-111827?style=for-the-badge)
+![Tailwind](https://img.shields.io/badge/Tailwind-4-06b6d4?style=for-the-badge&logo=tailwindcss)
 
-A high-performance, interactive personal portfolio built to showcase my **projects**, **certifications**, and **technical skill set** as a Full Stack Software Engineer. 
+A premium personal portfolio built with Next.js App Router, cinematic motion, and a layered glass design system. This project showcases selected builds, technical capabilities, certifications, and contact pathways in a performance-focused experience.
 
-Originally built in Vanilla HTML/JS, this project has been fully migrated to a modern **Next.js (App Router)** and **TypeScript** architecture. It features a custom **Obsidian Glass** aesthetic, custom React hooks for physics-based animations, and seamless performance. ✨🖤
+## ✨ Highlights
+- 🎨 Premium visual language with glassmorphism and dynamic background systems
+- ⚡ Smooth route-level UX using Next.js App Router
+- 🧭 Animated floating navigation and section reveal transitions
+- 📱 Mobile-optimized responsive layouts with non-overlapping component flow
+- 🧩 Reusable UI architecture powered by data in a central content layer
 
----
+## 🌍 Live Demo
+- Coming soon (update this section with the production URL)
 
-## 🌐 Live Demo
+## 🧱 Tech Stack
+- Framework: Next.js 14
+- UI Library: React 18
+- Language: TypeScript
+- Animation: Framer Motion
+- Styling: Tailwind CSS 4 + custom global design tokens
+- Icons: Lucide React + React Icons
 
-🔗 **[dimalshaperera.netlify.app](https://dimalshaperera.netlify.app/)** *(Update with your new Next.js deployment link!)*
-
----
-
-## 📸 Preview
-
-> Add a high-quality screenshot or GIF of your new Hero section and 3D Carousel here.
-
-![Portfolio Preview](https://img.shields.io/badge/Preview-Add%20Screenshot%20Here-111827?style=for-the-badge)
-
----
-
-## ✨ Architectural Highlights & Features
-
-### 💎 Obsidian Glass UI (Glassmorphism)
-- Deep-dark frosted panels with dynamic blur and subtle glow accents.
-- Modern typography (`Space Grotesk` & `Inter`) and carefully tuned CSS variables for premium depth and contrast.
-
-### ⚛️ Advanced React & Next.js Implementation
-- **App Router Architecture:** Utilizes the latest Next.js 14 `app/` directory structure for optimal routing.
-- **Custom React Hooks:** Replaced vanilla DOM scripts with reusable, performant React hooks:
-  - `useSpotlight`: Tracks mouse coordinates to generate a dynamic lighting effect on cards.
-  - `useTilt`: A lightweight, custom physics hook calculating mouse trajectory for 3D card tilting.
-  - `useScrollReveal`: Utilizes the `IntersectionObserver` API integrated into the React lifecycle.
-- **Client/Server Component Separation:** Optimized rendering by isolating interactive elements inside `"use client"` boundaries while keeping the layout server-rendered.
-
-### 🎪 Interactive Masterpieces
-- **3D Feature Carousel:** A draggable, auto-rotating 3D CSS carousel built entirely in React state for showcasing flagship projects.
-- **Infinite Tech Marquee:** A seamless, CSS-driven infinite loop highlighting the technical arsenal.
-
-### 📬 Real-time Contact Integration
-- Serverless email delivery powered by **@emailjs/browser**, featuring active loading states and error handling directly in the UI.
-
----
-
-## 🧰 Tech Stack
-
-- **Framework:** Next.js 14.2 (App Router)
-- **Library:** React 18
-- **Language:** TypeScript / JavaScript (ES6+)
-- **Styling:** Custom CSS (Obsidian Glass Theme) + Bootstrap 5 Grid System
-- **Integrations:** EmailJS
-- **Version Control:** Git & GitHub (Main -> Develop -> Feature branching strategy)
-
----
-
-## 📁 Project Structure
+## 📂 Project Structure
 
 ```text
 My_Portfolio/
-├── public/                     # Static media assets (Next.js optimized)
-│   ├── Featured/               # MP4 videos for 3D Carousel
-│   ├── My Certificates/        # Certification badges & images
-│   ├── Project Images/         # Screenshots of featured work
-│   ├── DimalshaPerera_Resume.pdf 
-│   └── Logo.jpg
+├── public/
+│   ├── about/
+│   ├── blog/
+│   ├── Expertice/
+│   ├── Featured/
+│   ├── Footer/
+│   ├── Hero/
+│   ├── My Certificates/
+│   ├── Project Images/
+│   │   ├── SOUL-SYNC/
+│   │   ├── SPHYNX-BLACK/
+│   │   └── SPHYNX-FLICKS/
+│   └── projects/
 ├── src/
-│   ├── app/                    # Next.js App Router Core
-│   │   ├── globals.css         # Master stylesheet (CSS variables, animations)
-│   │   ├── layout.tsx          # Root wrapper, Meta tags, and Global Scripts
-│   │   └── page.tsx            # Main assembly of all components
-│   └── components/             # Modular React Components
-│       ├── About.tsx
-│       ├── AnimationProvider.tsx # Global DOM observer for scroll reveals
-│       ├── BackgroundSystem.tsx  # Floating orbs & noise overlay
-│       ├── Certifications.tsx
-│       ├── Contact.tsx         # EmailJS integrated form
-│       ├── Experience.tsx
-│       ├── Featured.tsx        # 3D Draggable Carousel
-│       ├── Footer.tsx
-│       ├── Hero.tsx
-│       ├── Navbar.tsx          # Scroll-aware dynamic navbar
-│       ├── Projects.tsx        
-│       ├── Skills.tsx
-│       ├── TechMarquee.tsx
-│       ├── useScrollReveal.ts  # Custom Hook
-│       ├── useSpotlight.ts     # Custom Hook
-│       └── useTilt.ts          # Custom Hook
-├── .gitignore
+│   ├── app/
+│   │   ├── about/
+│   │   │   └── page.tsx
+│   │   ├── blog/
+│   │   │   └── page.tsx
+│   │   ├── projects/
+│   │   │   └── page.tsx
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── components/
+│   │   ├── home/
+│   │   │   ├── CTA.tsx
+│   │   │   ├── Expertise.tsx
+│   │   │   ├── Hero.tsx
+│   │   │   ├── Marquee.tsx
+│   │   │   ├── Projects.tsx
+│   │   │   └── Stats.tsx
+│   │   ├── AboutBackdrop.tsx
+│   │   ├── AnimationProvider.tsx
+│   │   ├── BackgroundSystem.tsx
+│   │   ├── BlogBackdrop.tsx
+│   │   ├── FloatingNav.tsx
+│   │   ├── Footer.tsx
+│   │   ├── ProjectsBackdrop.tsx
+│   │   └── Reveal.tsx
+│   ├── lib/
+│   │   └── portfolio-data.ts
+│   └── types/
+│       └── styles.d.ts
+├── next.config.mjs
 ├── package.json
-└── tsconfig.json
+├── postcss.config.mjs
+├── tsconfig.json
+└── README.md
 ```
 
----
+## 🧭 Route Map
+- 🏠 Home: Hero, stats, expertise, featured projects, tech marquee, CTA
+- 👤 About: Story, timeline, principles, grouped skills, certifications
+- 🧪 Projects: Featured and detailed project cards with metrics and links
+- 📝 Blog: Featured note + latest articles layout
 
-## 🚀 Getting Started (Local Setup)
+## ⚙️ Local Development
 
-Want to run this locally? Follow these steps:
-
-### 1️⃣ Clone the repository
-
+### 1. Clone
 ```bash
 git clone https://github.com/perera99-msd/My_Portfolio.git
 cd My_Portfolio
 ```
 
-### 2️⃣ Install Dependencies
-
+### 2. Install dependencies
 ```bash
 npm install
 ```
 
-### 3️⃣ Run the Development Server
-
+### 3. Run development server
 ```bash
 npm run dev
 ```
 
-Open http://localhost:3000 in your browser to see the application running.
+Visit http://localhost:3000
 
----
+## 📜 Available Scripts
+- npm run dev: Start local development server
+- npm run build: Create production build
+- npm run start: Start production server
+- npm run lint: Run lint checks
 
-## 🔐 Environment Setup (Contact Form)
+## 🛠️ Customization Guide
+- Update content source in src/lib/portfolio-data.ts
+- Add or replace media in public/
+- Tune design system variables and utility classes in src/app/globals.css
+- Update route-level metadata in each page file under src/app/
 
-If you fork this project, you will need to set up your own EmailJS account for the contact form to work.
+## 🔒 Security
+Please review SECURITY.md for vulnerability reporting guidelines.
 
-1. Create a free account at EmailJS.
-2. Create an Email Service and an Email Template.
-3. Update the credentials inside src/components/Contact.tsx:
-
-```js
-const SERVICE_ID = 'your_service_id';
-const TEMPLATE_ID = 'your_template_id';
-const PUBLIC_KEY = 'your_public_key';
-```
-
-(For production, it is recommended to move these to a .env.local file).
-
----
-
-## 👨‍💻 Git Workflow Standard
-
-This project follows a professional branching model:
-
-- `main` - Production-ready code.
-- `develop` - Active development and staging branch.
-- `feature/*` or `dev-*` - Isolated branches for new components or fixes.
-
----
+## 🤝 Contributing
+Please review CONTRIBUTING.md before submitting changes.
 
 ## 📄 License
+This project is licensed under the MIT License. See LICENSE for details.
 
-This project is intended for personal portfolio use. If you wish to draw inspiration from the Obsidian Glass UI or the custom React hooks, please provide attribution. 🙏
-
----
-
-## 👤 Author
-
-Dimalsha Perera 💼 Software Engineering Student | Aspiring Full Stack Engineer
-
-🌐 GitHub: @perera99-msd
-
-🔗 LinkedIn: Dimalsha Perera
+## 👨‍💻 Author
+- Name: Dimalsha Perera
+- GitHub: https://github.com/perera99-msd
+- LinkedIn: https://www.linkedin.com/in/msdimalsha-perera
